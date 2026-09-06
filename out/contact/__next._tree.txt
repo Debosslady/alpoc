@@ -1,2 +1,4 @@
-:HL["/_next/static/chunks/01axdnxwnez1u.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"contact","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"aRIxL5cPb505Q3uOCAovT"}
+:HL["/_next/static/chunks/28rdqxl0wge02.css","style"]
+:HL["/alpoc-logo.png","image"]
+:HL["/hero-platform.jpg","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"contact","param":null,"prefetchHints":4160,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"nWwkH2v0X8HOAgsk3hQYp"}

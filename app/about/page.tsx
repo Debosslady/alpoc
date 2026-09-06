@@ -1,9 +1,11 @@
 import { CheckCircle2, Compass, ShieldCheck, Target } from "lucide-react";
 import { Section, SectionHeading } from "@/components/site/Section";
+import { SiteHero } from "@/components/site/SiteHero";
 
 export default function AboutPage() {
   return (
     <>
+      <SiteHero />
       <Section>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>

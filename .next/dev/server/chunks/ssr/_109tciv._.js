@@ -115,18 +115,18 @@ function RootLayout({ children }) {
                     }
                 }, void 0, false, {
                     fileName: "[project]/app/layout.tsx",
-                    lineNumber: 29,
+                    lineNumber: 31,
                     columnNumber: 71
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/layout.tsx",
-            lineNumber: 29,
+            lineNumber: 31,
             columnNumber: 55
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/layout.tsx",
-        lineNumber: 29,
+        lineNumber: 31,
         columnNumber: 10
     }, this);
 }

@@ -11,14 +11,12 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading } from "@/components/site/Section";
-import { SiteHeader } from "@/components/site/SiteHeader";
 import { ContactForm } from "@/components/site/ContactForm";
 import { navLinks, services, strengths } from "@/components/site/data";
 
 export default function Index() {
   return (
     <div className="min-h-screen scroll-smooth bg-background font-sans antialiased">
-      <SiteHeader />
       <main>
         <Hero />
         <About />
@@ -27,7 +25,6 @@ export default function Index() {
         <WhyAlpoc />
         <Contact />
       </main>
-      <Footer />
     </div>
   );
 }
