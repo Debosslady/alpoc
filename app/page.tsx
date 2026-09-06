@@ -46,8 +46,7 @@ function Hero() {
             Asset-Link Petroleum Optimization Company (RC 1393662)
           </span>
           <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-primary-foreground sm:text-5xl lg:text-6xl">
-            Optimizing Petroleum Assets.{" "}
-            <span className="text-brand-sky">Maximizing Value.</span>
+            Optimizing Petroleum Assets. <span className="text-brand-sky">Maximizing Value.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
             Integrated oil &amp; gas solutions powered by technology, expertise and strategic

@@ -41,7 +41,7 @@ export function SiteHeader() {
           />
           <span className="min-w-0">
             <span className="block truncate text-base font-bold tracking-tight text-primary">
-              A  L  P  O  C
+              A L P O C
             </span>
             <span className="hidden truncate text-[6px] uppercase tracking-[0.18em] text-muted-foreground sm:block">
               Petroleum Optimization
@@ -111,7 +111,6 @@ export function SiteHeader() {
     </header>
   );
 }
-
 
 // "use client";
 

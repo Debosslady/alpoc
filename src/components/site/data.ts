@@ -46,8 +46,7 @@ export const services: Service[] = [
   },
   {
     title: "Production Operation Surveillance",
-    description:
-      "Remote near-real-time monitoring connected to intelligent asset solutions.",
+    description: "Remote near-real-time monitoring connected to intelligent asset solutions.",
     icon: Radar,
   },
   {
