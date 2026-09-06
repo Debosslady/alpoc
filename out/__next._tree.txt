@@ -1,0 +1,4 @@
+:HL["/_next/static/chunks/1bhl8jwlit78v.css","style"]
+:HL["/hero-platform.jpg","image"]
+:HL["/alpoc-logo.png","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"IbtMG7JXUOxL78WBGYgrA"}
