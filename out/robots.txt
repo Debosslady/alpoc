@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://asset-linkpoc.com/sitemap.xml

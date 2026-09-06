@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { navLinks } from "./data";
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -54,7 +56,11 @@ export function SiteHeader() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                aria-current={pathname === l.href ? "page" : undefined}
+                className={cn(
+                  "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-secondary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  pathname === l.href ? "bg-secondary text-primary" : "text-foreground/80",
+                )}
               >
                 {l.label}
               </Link>
@@ -86,7 +92,11 @@ export function SiteHeader() {
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="block rounded-md px-3 py-3 text-sm font-medium text-foreground/85 hover:bg-secondary hover:text-primary"
+              aria-current={pathname === l.href ? "page" : undefined}
+              className={cn(
+                "block rounded-md px-3 py-3 text-sm font-medium hover:bg-secondary hover:text-primary",
+                pathname === l.href ? "bg-secondary text-primary" : "text-foreground/85",
+              )}
             >
               {l.label}
             </Link>

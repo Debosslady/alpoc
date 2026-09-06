@@ -406,23 +406,19 @@ const services = [
 const navLinks = [
     {
         label: "Home",
-        href: "#home"
+        href: "/"
     },
     {
         label: "About Us",
-        href: "#about"
+        href: "/about"
     },
     {
         label: "Services",
-        href: "#services"
-    },
-    {
-        label: "Vision & Mission",
-        href: "#vision"
+        href: "/services"
     },
     {
         label: "Contact",
-        href: "#contact"
+        href: "/contact"
     }
 ];
 const strengths = [
