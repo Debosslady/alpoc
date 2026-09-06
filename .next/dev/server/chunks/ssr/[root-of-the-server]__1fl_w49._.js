@@ -1231,15 +1231,15 @@ const navLinks = [
     },
     {
         label: "About Us",
-        href: "#about"
+        href: "/about"
     },
     {
         label: "Services",
-        href: "#services"
+        href: "/services"
     },
     {
         label: "Contact",
-        href: "#contact"
+        href: "/contact"
     }
 ];
 const strengths = [

@@ -333,6 +333,7 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/menu.js [app-client] (ecmascript) <export default as Menu>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript) <export default as X>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/button.tsx [app-client] (ecmascript)");
@@ -347,8 +348,21 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
+// `trailingSlash: true` in next.config makes pathnames come back as "/about/",
+// so strip trailing slashes before comparing against nav hrefs.
+function normalizePath(path) {
+    return path.replace(/\/+$/, "") || "/";
+}
+function isActivePath(pathname, href) {
+    const current = normalizePath(pathname);
+    const target = normalizePath(href);
+    if (target === "/") return current === "/";
+    return current === target || current.startsWith(`${target}/`);
+}
 function SiteHeader() {
     _s();
+    const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"])();
     const [scrolled, setScrolled] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [open, setOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
@@ -365,8 +379,15 @@ function SiteHeader() {
             })["SiteHeader.useEffect"];
         }
     }["SiteHeader.useEffect"], []);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "SiteHeader.useEffect": ()=>{
+            setOpen(false);
+        }
+    }["SiteHeader.useEffect"], [
+        pathname
+    ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("fixed inset-x-0 top-0 z-50 transition-all duration-300", scrolled ? "border-b border-border bg-background/90 backdrop-blur-md shadow-card" : "bg-background/70 backdrop-blur-sm"),
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("fixed inset-x-0 top-0 z-50 transition-all duration-300", scrolled ? "border-b border-border bg-background/90 shadow-card backdrop-blur-md" : "bg-background/70 backdrop-blur-sm"),
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 lg:px-8",
@@ -383,98 +404,32 @@ function SiteHeader() {
                                 className: "h-11 w-11 shrink-0 rounded-md object-contain"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/site/SiteHeader.tsx",
-                                lineNumber: 33,
+                                lineNumber: 51,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "min-w-0",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "block truncate text-base font-bold tracking-tight text-primary",
-                                        children: "A L P O C"
+                                        className: "block truncate text-base font-bold tracking-[0.3em] text-primary",
+                                        children: "ALPOC"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/SiteHeader.tsx",
-                                        lineNumber: 41,
+                                        lineNumber: 59,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "hidden truncate text-[6px] uppercase tracking-[0.18em] text-muted-foreground sm:block",
+                                        className: "hidden truncate text-[9px] uppercase tracking-[0.18em] text-muted-foreground sm:block",
                                         children: "Petroleum Optimization"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/SiteHeader.tsx",
-                                        lineNumber: 44,
+                                        lineNumber: 62,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/site/SiteHeader.tsx",
-                                lineNumber: 40,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/components/site/SiteHeader.tsx",
-                        lineNumber: 32,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center gap-2",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                                className: "hidden items-center gap-1 lg:flex",
-                                children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$site$2f$data$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["navLinks"].map((l)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        href: l.href,
-                                        className: "rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                                        children: l.label
-                                    }, l.href, false, {
-                                        fileName: "[project]/src/components/site/SiteHeader.tsx",
-                                        lineNumber: 54,
-                                        columnNumber: 15
-                                    }, this))
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/site/SiteHeader.tsx",
-                                lineNumber: 52,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                asChild: true,
-                                variant: "accent",
-                                className: "hidden sm:inline-flex",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                    href: "#contact",
-                                    children: "Talk to Us"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/site/SiteHeader.tsx",
-                                    lineNumber: 65,
-                                    columnNumber: 13
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/site/SiteHeader.tsx",
-                                lineNumber: 64,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                type: "button",
-                                "aria-label": open ? "Close menu" : "Open menu",
-                                "aria-expanded": open,
-                                onClick: ()=>setOpen((v)=>!v),
-                                className: "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border text-primary lg:hidden",
-                                children: open ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
-                                    className: "size-5"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/site/SiteHeader.tsx",
-                                    lineNumber: 76,
-                                    columnNumber: 21
-                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__["Menu"], {
-                                    className: "size-5"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/site/SiteHeader.tsx",
-                                    lineNumber: 76,
-                                    columnNumber: 48
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/site/SiteHeader.tsx",
-                                lineNumber: 69,
+                                lineNumber: 58,
                                 columnNumber: 11
                             }, this)
                         ]
@@ -482,148 +437,140 @@ function SiteHeader() {
                         fileName: "[project]/src/components/site/SiteHeader.tsx",
                         lineNumber: 50,
                         columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex items-center gap-2",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
+                                "aria-label": "Primary",
+                                className: "hidden items-center gap-1 lg:flex",
+                                children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$site$2f$data$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["navLinks"].map((l)=>{
+                                    const active = isActivePath(pathname, l.href);
+                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        href: l.href,
+                                        "aria-current": active ? "page" : undefined,
+                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("relative rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring", "after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-brand-red after:transition-transform after:duration-300", active ? "text-primary after:scale-x-100" : "text-foreground/80 after:scale-x-0 hover:bg-secondary hover:text-primary"),
+                                        children: l.label
+                                    }, l.href, false, {
+                                        fileName: "[project]/src/components/site/SiteHeader.tsx",
+                                        lineNumber: 73,
+                                        columnNumber: 17
+                                    }, this);
+                                })
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/site/SiteHeader.tsx",
+                                lineNumber: 69,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                asChild: true,
+                                variant: "accent",
+                                className: "hidden sm:inline-flex",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    href: "/contact",
+                                    children: "Talk to Us"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/site/SiteHeader.tsx",
+                                    lineNumber: 92,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/site/SiteHeader.tsx",
+                                lineNumber: 91,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                type: "button",
+                                "aria-label": open ? "Close menu" : "Open menu",
+                                "aria-expanded": open,
+                                "aria-controls": "mobile-nav",
+                                onClick: ()=>setOpen((v)=>!v),
+                                className: "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border text-primary lg:hidden",
+                                children: open ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
+                                    className: "size-5"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/site/SiteHeader.tsx",
+                                    lineNumber: 103,
+                                    columnNumber: 21
+                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__["Menu"], {
+                                    className: "size-5"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/site/SiteHeader.tsx",
+                                    lineNumber: 103,
+                                    columnNumber: 48
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/site/SiteHeader.tsx",
+                                lineNumber: 95,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/site/SiteHeader.tsx",
+                        lineNumber: 68,
+                        columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/site/SiteHeader.tsx",
-                lineNumber: 30,
+                lineNumber: 49,
                 columnNumber: 7
             }, this),
             open && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
+                id: "mobile-nav",
+                "aria-label": "Primary mobile",
                 className: "border-t border-border bg-background px-5 pb-5 pt-2 lg:hidden",
                 children: [
-                    __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$site$2f$data$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["navLinks"].map((l)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                    __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$site$2f$data$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["navLinks"].map((l)=>{
+                        const active = isActivePath(pathname, l.href);
+                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             href: l.href,
+                            "aria-current": active ? "page" : undefined,
                             onClick: ()=>setOpen(false),
-                            className: "block rounded-md px-3 py-3 text-sm font-medium text-foreground/85 hover:bg-secondary hover:text-primary",
+                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("block rounded-md border-l-2 px-3 py-3 text-sm font-medium transition-colors", active ? "border-brand-red bg-secondary text-primary" : "border-transparent text-foreground/85 hover:bg-secondary hover:text-primary"),
                             children: l.label
                         }, l.href, false, {
                             fileName: "[project]/src/components/site/SiteHeader.tsx",
-                            lineNumber: 85,
-                            columnNumber: 13
-                        }, this)),
+                            lineNumber: 117,
+                            columnNumber: 15
+                        }, this);
+                    }),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                         asChild: true,
                         variant: "accent",
                         className: "mt-3 w-full",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                            href: "?contact",
+                            href: "/contact",
                             onClick: ()=>setOpen(false),
                             children: "Talk to Us"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/SiteHeader.tsx",
-                            lineNumber: 95,
+                            lineNumber: 134,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/site/SiteHeader.tsx",
-                        lineNumber: 94,
+                        lineNumber: 133,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/site/SiteHeader.tsx",
-                lineNumber: 83,
+                lineNumber: 109,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/site/SiteHeader.tsx",
-        lineNumber: 22,
+        lineNumber: 41,
         columnNumber: 5
     }, this);
-} // "use client";
- // import { useEffect, useState } from "react";
- // import { Menu, X } from "lucide-react";
- // import { Button } from "@/components/ui/button";
- // import { cn } from "@/lib/utils";
- // import logo from "@/assets/alpoc-logo.png";
- // import { navLinks } from "./data";
- // export function SiteHeader() {
- //   const [scrolled, setScrolled] = useState(false);
- //   const [open, setOpen] = useState(false);
- //   useEffect(() => {
- //     const onScroll = () => setScrolled(window.scrollY > 16);
- //     onScroll();
- //     window.addEventListener("scroll", onScroll, { passive: true });
- //     return () => window.removeEventListener("scroll", onScroll);
- //   }, []);
- //   return (
- //     <header
- //       className={cn(
- //         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
- //         scrolled
- //           ? "border-b border-border bg-background/90 backdrop-blur-md shadow-card"
- //           : "bg-background/70 backdrop-blur-sm",
- //       )}
- //     >
- //       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 lg:px-8">
- //         <a href="#home" className="flex min-w-0 items-center gap-3">
- //           <img
- //             src= "/alpoc-logo.png"
- //             alt="ALPOC company logo"
- //             width={48}
- //             height={48}
- //             className="h-11 w-11 shrink-0 rounded-md object-contain"
- //           />
- //           <span className="min-w-0">
- //             <span className="block truncate text-base font-bold tracking-tight text-primary">
- //               ALPOC
- //             </span>
- //             <span className="hidden truncate text-[6px] uppercase tracking-[0.18em] text-muted-foreground sm:block">
- //               Petroleum Optimization
- //             </span>
- //           </span>
- //         </a>
- //         <div className="flex items-center gap-2">
- //           <nav className="hidden items-center gap-1 lg:flex">
- //             {navLinks.map((l) => (
- //               <a
- //                 key={l.href}
- //                 href={l.href}
- //                 className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
- //               >
- //                 {l.label}
- //               </a>
- //             ))}
- //           </nav>
- //           <Button asChild variant="accent" className="hidden sm:inline-flex">
- //             <a href="#contact">Talk to Us</a>
- //           </Button>
- //           <button
- //             type="button"
- //             aria-label={open ? "Close menu" : "Open menu"}
- //             aria-expanded={open}
- //             onClick={() => setOpen((v) => !v)}
- //             className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border text-primary lg:hidden"
- //           >
- //             {open ? <X className="size-5" /> : <Menu className="size-5" />}
- //           </button>
- //         </div>
- //       </div>
- //       {open && (
- //         <nav className="border-t border-border bg-background px-5 pb-5 pt-2 lg:hidden">
- //           {navLinks.map((l) => (
- //             <a
- //               key={l.href}
- //               href={l.href}
- //               onClick={() => setOpen(false)}
- //               className="block rounded-md px-3 py-3 text-sm font-medium text-foreground/85 hover:bg-secondary hover:text-primary"
- //             >
- //               {l.label}
- //             </a>
- //           ))}
- //           <Button asChild variant="accent" className="mt-3 w-full">
- //             <a href="#contact" onClick={() => setOpen(false)}>
- //               Talk to Us
- //             </a>
- //           </Button>
- //         </nav>
- //       )}
- //     </header>
- //   );
- // }
-_s(SiteHeader, "jAm7jTHG65/J2yarYImCswCRH6E=");
+}
+_s(SiteHeader, "9ltzY/AyaXxsuXh+q9aQZgrN5Zs=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"]
+    ];
+});
 _c = SiteHeader;
 var _c;
 __turbopack_context__.k.register(_c, "SiteHeader");
@@ -718,15 +665,15 @@ const navLinks = [
     },
     {
         label: "About Us",
-        href: "#about"
+        href: "/about"
     },
     {
         label: "Services",
-        href: "#services"
+        href: "/services"
     },
     {
         label: "Contact",
-        href: "#contact"
+        href: "/contact"
     }
 ];
 const strengths = [
