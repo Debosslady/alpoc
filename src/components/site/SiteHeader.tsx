@@ -39,7 +39,7 @@ export function SiteHeader() {
           />
           <span className="min-w-0">
             <span className="block truncate text-base font-bold tracking-tight text-primary">
-              A  L  P  O  C
+              A L P O C
             </span>
             <span className="hidden truncate text-[6px] uppercase tracking-[0.18em] text-muted-foreground sm:block">
               Petroleum Optimization
@@ -62,7 +62,7 @@ export function SiteHeader() {
           </nav>
 
           <Button asChild variant="accent" className="hidden sm:inline-flex">
-            <Link href="/contact">Talk to Us</Link>
+            <Link href="#contact">Talk to Us</Link>
           </Button>
 
           {/* Mobile menu button */}
@@ -92,7 +92,7 @@ export function SiteHeader() {
             </Link>
           ))}
           <Button asChild variant="accent" className="mt-3 w-full">
-            <Link href="/contact" onClick={() => setOpen(false)}>
+            <Link href="?contact" onClick={() => setOpen(false)}>
               Talk to Us
             </Link>
           </Button>

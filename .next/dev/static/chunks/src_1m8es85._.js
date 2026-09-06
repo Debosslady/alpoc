@@ -391,7 +391,7 @@ function SiteHeader() {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "block truncate text-base font-bold tracking-tight text-primary",
-                                        children: "A  L  P  O  C"
+                                        children: "A L P O C"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/SiteHeader.tsx",
                                         lineNumber: 41,
@@ -441,7 +441,7 @@ function SiteHeader() {
                                 variant: "accent",
                                 className: "hidden sm:inline-flex",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                    href: "/contact",
+                                    href: "#contact",
                                     children: "Talk to Us"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/SiteHeader.tsx",
@@ -507,7 +507,7 @@ function SiteHeader() {
                         variant: "accent",
                         className: "mt-3 w-full",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                            href: "/contact",
+                            href: "?contact",
                             onClick: ()=>setOpen(false),
                             children: "Talk to Us"
                         }, void 0, false, {
@@ -718,15 +718,15 @@ const navLinks = [
     },
     {
         label: "About Us",
-        href: "/about"
+        href: "#about"
     },
     {
         label: "Services",
-        href: "/services"
+        href: "#services"
     },
     {
         label: "Contact",
-        href: "/contact"
+        href: "#contact"
     }
 ];
 const strengths = [
